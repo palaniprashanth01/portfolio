@@ -1,0 +1,646 @@
+/* ============================================================
+   Shared styles — Portfolio (inspired by hrsht.me design)
+   ============================================================ */
+
+:root {
+  --bg: #0a1017;
+  --text: #ffffff;
+  --brand: #ffffff;
+  --brand-dark: #dddddd;
+  --accent: #e07a3c;
+  --accent-dark: #c2632a;
+  --muted: rgba(255, 255, 255, 0.85);
+  --grid: transparent;
+  --card-border: rgba(255, 255, 255, 0.15);
+  --card-bg: rgba(0, 0, 0, 0.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  background-image: linear-gradient(rgba(10, 16, 23, 0.55), rgba(10, 16, 23, 0.75)), url('bg.webp');
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  color: var(--text);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  padding: 32px 24px 140px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Back link ---------- */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 22px;
+  transition: color .2s ease;
+}
+.back:hover { color: var(--brand); }
+.back svg { width: 18px; height: 18px; }
+
+/* ---------- Layout ---------- */
+.container { max-width: 1100px; margin: 0 auto; }
+.narrow { max-width: 720px; margin: 0 auto; }
+
+/* ---------- Headings ---------- */
+.display {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-weight: 700;
+  font-size: clamp(64px, 12vw, 152px);
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
+}
+.display-md {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-weight: 700;
+  font-size: clamp(48px, 7vw, 100px);
+  color: #ffffff;
+  line-height: 1.05;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+}
+.subtitle {
+  font-size: 24px;
+  color: var(--text);
+  opacity: 1;
+}
+
+.italic { font-style: italic; }
+
+/* ---------- Hero (home) ---------- */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 0 80px;
+  animation: fadeUp .8s ease both;
+}
+.hero h1 { text-align: center; }
+.hero .tag {
+  margin-top: 28px;
+  font-size: 26px;
+  color: var(--text);
+  opacity: 1;
+}
+.hero .tag em {
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: underline wavy var(--brand) 1.5px;
+  text-underline-offset: 6px;
+}
+.hero .bio {
+  margin-top: 22px;
+  max-width: 720px;
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.hero .bio em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ---------- Choose Path divider ---------- */
+.path-divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 18px;
+  letter-spacing: 0.25em;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 60px 0 28px;
+  text-transform: uppercase;
+}
+.path-divider::before, .path-divider::after {
+  content: ""; width: 60px; height: 1px; background: var(--card-border);
+}
+
+/* ---------- Path cards ---------- */
+.paths {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.path-card {
+  position: relative;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 24px 28px 36px;
+  min-height: 200px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.path-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--brand);
+}
+.path-card .row1 { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-style: italic; font-size: 22px; }
+.path-card .row1 svg { width: 22px; height: 22px; transition: transform .2s ease; }
+.path-card:hover .row1 svg { transform: translateX(4px); color: var(--brand); }
+.path-card .name {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-size: 56px;
+  text-align: right;
+  color: var(--brand);
+  line-height: 1;
+}
+
+/* ---------- Section headers ---------- */
+.section { margin-top: 120px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.section-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 48px;
+}
+.section-head .titles h2 {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 84px);
+  color: var(--brand);
+  line-height: 1.05;
+}
+.section-head .titles p { margin-top: 14px; color: var(--muted); font-style: italic; font-size: 20px; }
+.section-head .icon { font-size: 64px; opacity: 0.7; }
+
+/* ---------- Project (build log) cards ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.project {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 26px 28px 30px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.project:hover { transform: translateY(-3px); border-color: var(--brand); }
+.project h3 {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--brand);
+  margin-bottom: 14px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.tag {
+  font-size: 15px;
+  padding: 5px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  color: var(--muted);
+}
+.project p { font-size: 19px; color: var(--text); opacity: 1; line-height: 1.6; }
+.project .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.btn {
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  font-size: 16px;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-primary { background: var(--accent); color: #ffffff; border-color: var(--accent); }
+.btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn-ghost { color: #ffffff; border-color: rgba(255,255,255,0.4); }
+.btn-ghost:hover { border-color: #ffffff; background: rgba(255,255,255,0.08); }
+
+/* ---------- Timeline (Work page) ---------- */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  border-left: 1.5px solid var(--card-border);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.tl-item { padding: 12px 0 56px; position: relative; }
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -34px; top: 18px;
+  width: 12px; height: 12px;
+  background: var(--bg);
+  border: 2px solid var(--brand);
+  border-radius: 50%;
+}
+.tl-item h3 {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: 42px;
+  color: var(--brand);
+  line-height: 1.1;
+}
+.tl-item h3 small { font-style: italic; color: var(--muted); font-size: 22px; font-family: "Instrument Serif", serif; margin-left: 8px; }
+.tl-meta { letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-size: 13px; margin: 8px 0 18px; }
+.tl-item ul { list-style: none; padding: 0; }
+.tl-item li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 19px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.tl-item li::before {
+  content: "❖";
+  color: var(--brand);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---------- Wows list ---------- */
+.wows-list { display: flex; flex-direction: column; gap: 18px; max-width: 900px; margin: 0 auto; }
+.wow {
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 28px 32px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.wow:hover { transform: translateY(-2px); border-color: var(--brand); }
+.wow h3 {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--brand);
+  margin-bottom: 6px;
+}
+.wow p { color: var(--muted); font-style: italic; font-size: 18px; }
+.wow .num { color: var(--muted); font-style: italic; font-size: 20px; }
+.wow.locked { opacity: 0.5; }
+.wow.locked h3 { color: var(--muted); }
+
+/* ---------- Bottom nav (no sound) ---------- */
+.bottom-nav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 14px rgba(60, 70, 50, 0.08);
+  z-index: 50;
+}
+.bottom-nav a {
+  font-size: 22px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  color: var(--text);
+  transition: background .2s ease, color .2s ease;
+}
+.bottom-nav a:hover { color: var(--brand); }
+.bottom-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade { animation: fadeUp .8s ease both; }
+.fade-1 { animation: fadeUp .8s .1s ease both; }
+.fade-2 { animation: fadeUp .8s .2s ease both; }
+.fade-3 { animation: fadeUp .8s .3s ease both; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .paths { grid-template-columns: 1fr; }
+  .projects { grid-template-columns: 1fr; }
+  .section-head { flex-direction: column; align-items: flex-start; }
+  .wow { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .timeline { padding-left: 22px; }
+  .tl-item h3 { font-size: 28px; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 24px 16px 130px; }
+  .hero { min-height: 60vh; }
+  .bottom-nav a { padding: 6px 10px; font-size: 14px; }
+}
+
+/* ---------- Skills / Backpack ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.skill-category {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 24px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.skill-category:hover { transform: translateY(-3px); border-color: var(--brand); }
+.skill-category h3 {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-size: 22px;
+  color: var(--brand);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+/* ---------- GitHub Realm ---------- */
+.gh-realm-card {
+  display: block;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 30px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform .25s ease, border-color .25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.gh-realm-card:hover { transform: translateY(-3px); border-color: var(--brand); }
+.gh-stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.gh-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: var(--brand);
+  font-weight: 500;
+}
+.gh-user svg { width: 24px; height: 24px; }
+.gh-contributions {
+  font-size: 18px;
+  color: var(--muted);
+  font-style: italic;
+}
+.gh-contributions strong {
+  color: #39d353; /* GitHub green */
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+}
+.gh-graph {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.gh-grid {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.gh-day {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+.gh-day.l0 { background: rgba(255, 255, 255, 0.05); }
+.gh-day.l1 { background: rgba(57, 211, 83, 0.25); }
+.gh-day.l2 { background: rgba(57, 211, 83, 0.50); }
+.gh-day.l3 { background: rgba(57, 211, 83, 0.75); }
+.gh-day.l4 { background: rgba(57, 211, 83, 1.00); }
+
+/* ---------- Quest Rewards ---------- */
+.rewards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.reward-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.reward-item:hover { transform: translateX(4px); border-color: var(--brand); }
+.reward-icon {
+  font-size: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+}
+.reward-content h4 {
+  font-size: 20px;
+  color: var(--brand);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.reward-content p {
+  color: var(--muted);
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* ---------- Rest at the Camp (CTA) ---------- */
+.cta-section {
+  margin-bottom: 40px;
+}
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--brand);
+  border-radius: 12px;
+  padding: 48px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.0) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  text-align: left;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.cta-content h2 {
+  font-family: "Pixelify Sans", "Instrument Serif", serif;
+  font-size: 48px;
+  color: var(--brand);
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.cta-content p {
+  font-size: 20px;
+  color: var(--muted);
+  font-style: italic;
+}
+.cta-action .btn {
+  font-size: 18px;
+  padding: 16px 32px;
+  border-radius: 8px;
+}
+.cta-action .btn span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.cta-action .btn:hover span {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .cta-card { flex-direction: column; text-align: center; padding: 32px 24px; }
+  .gh-stats-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- AI Toolkit Marquee ---------- */
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee {
+  display: flex;
+  width: max-content;
+}
+.marquee-left {
+  animation: scroll-left 40s linear infinite;
+}
+.marquee-right {
+  animation: scroll-right 45s linear infinite;
+}
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 8px;
+}
+.tool-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  color: var(--brand);
+  font-family: "Instrument Serif", serif;
+  font-size: 18px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+.tool-badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  background: rgba(255, 255, 255, 0.1);
+}
+.tool-badge img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.tool-badge .emoji {
+  font-size: 18px;
+}
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ---------- Enhanced Hover & Motion ---------- */
+.project:hover, .path-card:hover, .wow:hover, .gh-realm-card:hover, .skill-category:hover, .reward-item:hover, .row:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+  border-color: var(--brand);
+}
+
+/* Floating Icons */
+.section-head .icon {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Gradient Text Shimmer */
+.display.shimmer {
+  background: linear-gradient(90deg, #ffffff 0%, #a0a0a0 50%, #ffffff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerText 5s linear infinite;
+}
+
+@keyframes shimmerText {
+  to { background-position: 200% center; }
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}

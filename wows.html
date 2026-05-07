@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Wows — Palani Prashanth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<meta name="description" content="Side quests and things I'm proud of." />
+<meta name="author" content="Palani Prashanth" />
+<meta name="theme-color" content="#0a1017" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Wows — Palani Prashanth" />
+<meta property="og:description" content="Side quests and things I'm proud of." />
+<meta property="og:image" content="bg.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Wows — Palani Prashanth" />
+<meta name="twitter:description" content="Side quests and things I'm proud of." />
+<meta name="twitter:image" content="bg.webp" />
+</head>
+<body>
+
+<a href="index.html" class="back">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  Back Home
+</a>
+
+<header style="text-align:center; margin: 80px auto 60px;" class="fade">
+  <h1 class="display shimmer">The Wows</h1>
+  <p class="subtitle italic" style="margin-top: 18px;">Little surprises, side quests, and things I'm proud of.</p>
+</header>
+
+<section class="wows-list fade-1">
+
+  <div class="wow reveal">
+    <div>
+      <h3>AICE AI Deep-Dives &amp; Notes</h3>
+      <p>Technical explainers, RAG tutorials, and prompt engineering guides.</p>
+    </div>
+    <span class="num italic">01</span>
+  </div>
+
+  <div class="wow reveal">
+    <div>
+      <h3>Agentic &amp; Vision Experiments</h3>
+      <p>From YOLOv8 missing person detection to agentic Bloom's Taxonomy MCQs.</p>
+    </div>
+    <span class="num italic">02</span>
+  </div>
+
+  <div class="wow reveal">
+    <div>
+      <h3>Community &amp; Hackathons</h3>
+      <p>Organizing the AICE Sales Hackathon in Hyderabad and launching products.</p>
+    </div>
+    <span class="num italic">03</span>
+  </div>
+
+  <div class="wow reveal">
+    <div>
+      <h3>The Daily AI Feed</h3>
+      <p>My daily AI updates crafted with Perplexity, Gemini, and Claude.</p>
+    </div>
+    <span class="num italic">04</span>
+  </div>
+
+</section>
+
+<nav class="bottom-nav">
+  <a href="index.html">The Life</a>
+  <a href="work.html">The Work</a>
+  <a href="wows.html" class="active">The Wows</a>
+  <a href="contact.html">The Info</a>
+</nav>
+
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+</body>
+
+</html>
