@@ -32,9 +32,9 @@ body {
   padding: 32px 24px 140px;
 }
 
-/* Hero background image — only visible behind the top section,
-   fades out before the project log so the rest stays plain & readable. */
-body::before {
+/* Hero background image — only on the home page, behind the top section.
+   Fades out before the project log so the rest stays plain & readable. */
+body.home::before {
   content: "";
   position: absolute;
   top: 0;
